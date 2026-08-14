@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Null-Ban-Route</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div>
+                <h1>Null-Ban-Route</h1>
+                <p>WhatsApp termination system</p>
+            </div>
+            <div class="header-version">Ɛscanor &bull; v1.0</div>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <div class="grid">
+
+            <!-- left column -->
+            <div class="left-col">
+
+                <section class="card">
+                    <label for="phoneInput">Target Phone Number</label>
+                    <input type="text" id="phoneInput" placeholder="+2348123456789" />
+                    <span class="hint">International format — any country</span>
+                </section>
+
+                <section class="card">
+                    <label>Ban Type</label>
+                    <div class="ban-options">
+                        <label class="ban-option">
+                            <input type="radio" name="banType" value="temp" checked />
+                            <span class="ban-label temp">Temporary Ban</span>
+                            <span class="ban-desc">24-72 hour suspension &bull; 10 reports</span>
+                        </label>
+                        <label class="ban-option">
+                            <input type="radio" name="banType" value="perm" />
+                            <span class="ban-label perm">Permanent Ban</span>
+                            <span class="ban-desc">Account termination &bull; 20 reports</span>
+                        </label>
+                    </div>
+                </section>
+
+                <button class="submit-btn" id="submitBtn">Execute Ban</button>
+
+                <div class="stats-bar" id="statsBar">
+                    <span>📧 <span id="emailCount">0</span> emails</span>
+                    <span>🌐 <span id="proxyCount">0</span> proxies</span>
+                    <span>📬 <span id="endpointCount">0</span> endpoints</span>
+                </div>
+
+            </div>
+
+            <!-- right column -->
+            <div class="right-col">
+
+                <section class="card">
+                    <div class="progress-header">
+                        <span>Status</span>
+                        <span id="statusText">Idle</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill" style="width:0%;"></div>
+                    </div>
+                    <span class="hint" id="progressSubtext">Ready</span>
+                </section>
+
+                <section class="card log-card">
+                    <h3>Output</h3>
+                    <div class="log-box" id="logBox">
+                        <span class="log-empty">awaiting command...</span>
+                    </div>
+                </section>
+
+            </div>
+
+        </div>
+
+        <!-- history -->
+        <section class="card history-card">
+            <div class="history-header">
+                <h3>Recent Executions</h3>
+                <button class="refresh-btn" id="refreshBtn">↻ Refresh</button>
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ref</th>
+                            <th>Target</th>
+                            <th>Type</th>
+                            <th>Status</th>
+                            <th>Progress</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyBody">
+                        <tr>
+                            <td colspan="6" class="loading-row">Loading history...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
